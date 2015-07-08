@@ -58,6 +58,11 @@ create_env() {
 
 header "Creating runtime environment"
 create_env # can't indent the whole thing because piping causes subshells; no exporting possible
+
+export PATH="$PATH:$BUILD_DIR/vendor/taglib/bin"
+export CPATH="$BUILD_DIR/vendor/taglib/include/taglib"
+export LIBRARY_PATH="$BUILD_DIR/vendor/taglib/lib"
+
 list_node_config | indent
 
 install_bins() {
